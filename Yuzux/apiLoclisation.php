@@ -10,8 +10,16 @@ try {
     $retour["message"] = "Connexion BDD imposible";
 }
 
-$requete = $pdo->prepare("SELECT * FROM Location");
-$requete->execute();
+if(!empty($_GET["Ville"]))
+{
+    $requete = $pdo->prepare("SELECT * FROM `Location` WHERE Ville= ?");
+    $requete->execute(array($_GET["Ville"]));
+}
+else 
+{
+    $requete = $pdo->prepare("SELECT * FROM Location");
+    $requete->execute();
+}
 
 $retour["success"] = true;
 $retour["message"] = "Localisation";
