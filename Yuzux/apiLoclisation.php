@@ -23,6 +23,6 @@ else
 
 $retour["success"] = true;
 $retour["message"] = "Localisation";
-$retour["results"] ["location"] = $requete->fetchAll();
+$retour["location"] = $requete->fetchAll();
 
 echo json_encode($retour);
